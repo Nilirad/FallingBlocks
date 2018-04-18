@@ -1,0 +1,10 @@
+#pragma once
+
+enum StateID {
+	NONE,
+	TITLE_SCREEN_STATE,
+	MAIN_MENU_STATE,
+	OPTIONS_STATE,
+	PLAYING_STATE,
+	PAUSE_STATE,
+};

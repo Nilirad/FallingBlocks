@@ -1,0 +1,77 @@
+#pragma once
+
+template <class T>
+class Option {
+public:
+	/// \brief Default constructor.
+	Option();
+
+	/// \brief Constructor.
+	Option(T value);
+	
+	/// \brief Returns true if has a value, false otherwise.
+	bool hasValue();
+
+	/// \brief Gets the contained value.
+	T getValue();
+
+	/// \brief Sets the specified value.
+	void setValue(T value);
+
+	/// \brief Remove the contained value.
+	void removeValue();
+private:
+	T mValue; ///< The contained value.
+	bool mHasValue; ///< Specified if the contained value exists.
+};
+
+/////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////  METHODS  /////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////
+
+template<class T>
+Option<T>::Option()
+	: mHasValue(false)
+	, mValue()
+{
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////
+
+template<class T>
+Option<T>::Option(T value)
+	: mHasValue(true)
+	, mValue(value)
+{
+
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////
+
+template<class T>
+bool Option<T>::hasValue() {
+	return mHasValue;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////
+
+template <class T>
+T Option<T>::getValue() {
+	return mValue;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////
+
+template<class T>
+void Option<T>::setValue(T value) {
+	mHasValue = true;
+	mValue = value;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////
+
+template<class T>
+void Option<T>::removeValue() {
+	mHasValue = false;
+	mValue = T();
+}
